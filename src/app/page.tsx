@@ -322,19 +322,6 @@ export default function Home() {
             </div>
           </ScrollAnimator>
 
-          {/* Bruce Brown */}
-          <ScrollAnimator>
-            <div className="mt-16 text-center">
-              <Image
-                src="/images/bruce-brown.jpg"
-                alt="In honor of Bruce Brown"
-                width={100}
-                height={113}
-                className="rounded-xl mx-auto mb-3 shadow-sm"
-              />
-              <p className="text-gray-400 text-sm italic">in honor of Bruce Brown</p>
-            </div>
-          </ScrollAnimator>
         </div>
       </section>
 
@@ -352,6 +339,20 @@ export default function Home() {
             </div>
           </ScrollAnimator>
           <ContactForm />
+        </div>
+      </section>
+
+      {/* ═══ IN HONOR OF BRUCE BROWN ═══ */}
+      <section className="py-16 bg-white">
+        <div className="max-w-md mx-auto px-6 text-center">
+          <Image
+            src="/images/bruce-brown.jpg"
+            alt="In honor of Bruce Brown"
+            width={120}
+            height={135}
+            className="rounded-xl mx-auto mb-4 shadow-sm"
+          />
+          <p className="text-gray-500 italic text-sm">in honor of Bruce Brown</p>
         </div>
       </section>
     </>
