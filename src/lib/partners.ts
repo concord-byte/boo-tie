@@ -22,7 +22,7 @@ export const PARTNERS: PartnerInfo[] = [
     slug: "boostr-digital-displays",
     name: "Boostr Digital Displays",
     logo: "/images/partner-boostr.png",
-    website: "https://www.boostrdigitaldisplays.com",
+    website: "https://booster.matthuszar.com/partners#faq",
     description:
       "Dynamic digital display solutions for schools, stadiums, and campus environments.",
     adCopy:
