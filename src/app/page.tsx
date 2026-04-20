@@ -6,6 +6,7 @@ import QuickCapture from "@/components/QuickCapture";
 import StickyCTA from "@/components/StickyCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import AudienceCards from "@/components/AudienceCards";
+import HubDiagram from "@/components/HubDiagram";
 
 const TESTIMONIALS = [
   {
@@ -163,23 +164,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AudienceCards />
             <div className="hidden md:flex justify-center">
-              <Image
-                src="/images/hub-diagram.png"
-                alt="BowTie ecosystem — Schools, Trusted Vendors, and National Brands connected through BowTie"
-                width={912}
-                height={607}
-                className="w-full h-auto drop-shadow-lg"
-              />
+              <HubDiagram />
             </div>
           </div>
           <div className="md:hidden mt-10 flex justify-center">
-            <Image
-              src="/images/hub-diagram.png"
-              alt="BowTie ecosystem"
-              width={912}
-              height={607}
-              className="w-full h-auto drop-shadow-lg"
-            />
+            <HubDiagram />
           </div>
         </div>
       </section>
