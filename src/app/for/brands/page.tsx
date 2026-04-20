@@ -33,7 +33,7 @@ export default function ForBrands() {
             <span className="text-gold font-normal">actually pay attention</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            School communities are the most trusted, highest-engagement environments for family-focused brands. BowTie gets you in — authentically.
+            School communities are the most trusted, highest-engagement environments for family-focused brands. BowTie gets you in through a vetted network of 50+ schools — authentically, at scale.
           </p>
         </div>
       </section>

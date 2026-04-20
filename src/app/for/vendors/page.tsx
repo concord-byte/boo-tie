@@ -33,7 +33,7 @@ export default function ForVendors() {
             <span className="text-gold font-normal">need what you sell</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            BowTie connects you directly with decision-makers at schools across the country — through trusted relationships, not cold outreach.
+            BowTie gives school-focused distributors and product companies trusted access to the K-12 market. Through real relationships with athletic directors, administrators, and booster clubs — not cold outreach.
           </p>
         </div>
       </section>

@@ -33,7 +33,7 @@ export default function ForSchools() {
             <span className="text-gold font-normal">revenue engine</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            BowTie helps schools generate sustainable revenue through strategic partnerships with trusted vendors and national brands — without adding work to your plate.
+            BowTie helps schools secure sponsorships, access fundraising tools, and connect with trusted distributors — without having to figure it all out alone. With 17+ years of K-12 relationships, we bring the right partners to your campus.
           </p>
         </div>
       </section>
