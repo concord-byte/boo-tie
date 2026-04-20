@@ -28,6 +28,16 @@ export const PARTNERS: PartnerInfo[] = [
     adCopy:
       "Boostr Digital Displays — powering the future of campus signage and sponsorship visibility.",
   },
+  {
+    slug: "bowtie-fundraising",
+    name: "BowTie Fundraising",
+    logo: "/images/partner-bowtie-fundraising.png",
+    website: "https://www.bowtienetwork.com",
+    description:
+      "School fundraising solutions powered by the BowTie network — maximizing revenue for campuses nationwide.",
+    adCopy:
+      "BowTie Fundraising — turning school partnerships into sustainable campus revenue.",
+  },
 ];
 
 export function getPartnerBySlug(slug: string): PartnerInfo | undefined {
