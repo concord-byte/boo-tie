@@ -5,14 +5,15 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "BowTie Network — Connecting Schools, Vendors & Brands",
+  title: "BowTie School Partners — Tying It All Together",
   description:
-    "A network where schools, best-in-class vendors and respected brands all win together. Campus revenue, sponsorship, and strategic partnerships.",
+    "BowTie connects schools, best-in-class vendors, and respected national brands through one reliable partner. Strategic school partnerships that deliver real value.",
 };
 
 export default function RootLayout({

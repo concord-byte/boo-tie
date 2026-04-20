@@ -31,47 +31,87 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="text-center py-16">
-        <div className="text-5xl mb-4">&#10003;</div>
-        <h3 className="text-2xl font-semibold text-navy mb-2">Thank you!</h3>
-        <p className="text-gray-600">We&apos;ll be in touch soon.</p>
+      <div className="text-center py-20">
+        <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-light text-gray-900 mb-3">Thank you!</h3>
+        <p className="text-gray-600">Kylene will be in touch shortly.</p>
       </div>
     );
   }
 
   const inputClass =
-    "w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition text-sm";
+    "w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-gold/50 focus:bg-white transition-all duration-300 text-sm";
 
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-      <input name="firstName" required placeholder="First Name" className={inputClass} />
-      <input name="lastName" required placeholder="Last Name" className={inputClass} />
-      <input name="company" placeholder="Company / School" className={inputClass} />
-      <input name="email" type="email" required placeholder="Email" className={inputClass} />
-      <input name="phone" type="tel" placeholder="Phone" className={inputClass} />
-      <select name="role" required className={inputClass} defaultValue="">
-        <option value="" disabled>Select Role</option>
-        <option value="School">School</option>
-        <option value="Vendor">Vendor</option>
-        <option value="National Brand">National Brand</option>
-        <option value="Other">Other</option>
-      </select>
-      <textarea
-        name="message"
-        rows={4}
-        placeholder="How can we help?"
-        className={`${inputClass} sm:col-span-2`}
-      />
+      <div>
+        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+          First Name
+        </label>
+        <input id="firstName" name="firstName" required className={inputClass} placeholder="First Name" />
+      </div>
+      <div>
+        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+          Last Name
+        </label>
+        <input id="lastName" name="lastName" required className={inputClass} placeholder="Last Name" />
+      </div>
+      <div>
+        <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+          Company / School
+        </label>
+        <input id="company" name="company" className={inputClass} placeholder="Company / School" />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          Email
+        </label>
+        <input id="email" name="email" type="email" required className={inputClass} placeholder="Email" />
+      </div>
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          Phone
+        </label>
+        <input id="phone" name="phone" type="tel" className={inputClass} placeholder="Phone" />
+      </div>
+      <div>
+        <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
+          Role
+        </label>
+        <select id="role" name="role" required className={inputClass} defaultValue="">
+          <option value="" disabled>Select Role</option>
+          <option value="School">School</option>
+          <option value="Vendor">Vendor</option>
+          <option value="National Brand">National Brand</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
       <div className="sm:col-span-2">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          placeholder="How can we help?"
+          className={inputClass}
+        />
+      </div>
+      <div className="sm:col-span-2 pt-2">
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full bg-gold hover:bg-gold-light text-navy font-semibold py-3 px-8 rounded-lg transition-colors disabled:opacity-60"
+          className="w-full bg-gold hover:bg-gold-light text-navy font-semibold rounded-full py-4 text-base hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-gold/20 disabled:opacity-60 disabled:hover:scale-100"
         >
           {status === "loading" ? "Sending..." : "Send Message"}
         </button>
         {status === "error" && (
-          <p className="mt-3 text-red-600 text-sm text-center">{errorMsg}</p>
+          <p className="mt-4 text-red-600 text-sm text-center">{errorMsg}</p>
         )}
       </div>
     </form>
