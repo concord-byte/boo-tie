@@ -72,7 +72,7 @@ export default function AdminSidebar() {
         }`}
       >
         <div className="h-16 flex items-center px-6 border-b border-white/10">
-          <span className="text-xl font-bold tracking-tight text-gold">Boo-Tie</span>
+          <span className="text-xl font-bold tracking-tight text-gold">BowTie</span>
           <span className="ml-2 text-xs font-medium text-white/50 uppercase tracking-widest">Admin</span>
         </div>
 
@@ -95,7 +95,7 @@ export default function AdminSidebar() {
         </nav>
 
         <div className="px-6 py-4 border-t border-white/10 text-xs text-white/40">
-          Boo-Tie Admin v1.0
+          BowTie Admin v1.0
         </div>
       </aside>
     </>

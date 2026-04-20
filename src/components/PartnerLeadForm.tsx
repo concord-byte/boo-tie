@@ -68,7 +68,7 @@ export default function PartnerLeadForm({
     return (
       <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
         <p className="text-lg font-semibold text-green-800">
-          Thank you! A Boo-Tie representative will be in touch.
+          Thank you! A BowTie representative will be in touch.
         </p>
         <p className="text-sm text-green-600 mt-2">
           We&apos;ll connect you with {partnerName} shortly.

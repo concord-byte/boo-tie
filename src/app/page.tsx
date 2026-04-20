@@ -4,23 +4,26 @@ import ContactForm from "@/components/ContactForm";
 
 const FEATURES = [
   { icon: "📊", title: "Campus Revenue Assessment", desc: "Comprehensive analysis of your campus revenue potential and untapped opportunities." },
-  { icon: "🤖", title: "AI Powered Sponsorship", desc: "Leverage cutting-edge AI tools to match schools with ideal brand partners." },
-  { icon: "💰", title: "Budget Support", desc: "Strategic financial planning to help schools maximize every dollar." },
-  { icon: "🤝", title: "Business Development", desc: "Build lasting relationships between schools, vendors, and national brands." },
+  { icon: "🤖", title: "AI Powered Sponsorship Generation", desc: "Leverage cutting-edge AI tools to match schools with ideal brand partners." },
+  { icon: "💰", title: "Budget Support & Preferred Pricing", desc: "Strategic financial planning to help schools maximize every dollar." },
+  { icon: "🤝", title: "Business Development Support", desc: "Build lasting relationships between schools, vendors, and national brands." },
   { icon: "🎯", title: "Strategy & Implementation", desc: "End-to-end execution from planning through launch and beyond." },
   { icon: "📈", title: "Revenue Generation", desc: "Proven models that create sustainable revenue streams for campuses." },
+  { icon: "📍", title: "Local Activation Planning", desc: "Customized local strategies that connect brands with school communities on the ground." },
+  { icon: "🤲", title: "Relationship Management", desc: "Ongoing partnership stewardship ensuring long-term wins for all parties." },
+  { icon: "📉", title: "Measurable Results", desc: "Data-driven reporting that proves ROI and guides future partnership decisions." },
 ];
 
 const TESTIMONIALS = [
   {
-    quote: "Boo-Tie has been instrumental in helping us identify and secure partnerships that truly benefit our students and campus community.",
+    quote: "Their professionalism and attention to detail have allowed our projects come off without a hitch.",
     name: "Mike Graefe",
-    title: "Athletic Director",
+    title: "Meridian (ID) High School Athletic Director",
   },
   {
-    quote: "The team at Boo-Tie understands the unique needs of schools and brings vendors that align with our mission and values.",
+    quote: "Kylene's approach is so consultative, a true partner.",
     name: "Jennifer Ripley",
-    title: "District Administrator",
+    title: "Valor Christian (GA) High School Booster Club President",
   },
 ];
 
@@ -40,31 +43,37 @@ export default function Home() {
             <span className="text-gold">win together</span>
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Boo-Tie connects educational institutions with trusted partners to create meaningful, revenue-generating relationships.
+            BowTie connects educational institutions with trusted partners to create meaningful, revenue-generating relationships.
           </p>
           <a
             href="#contact"
             className="inline-block mt-10 bg-gold hover:bg-gold-light text-navy font-semibold py-4 px-10 rounded-lg transition-colors text-lg"
           >
-            Connect with Us
+            Connect with Ky
           </a>
         </div>
       </section>
 
-      {/* About */}
+      {/* About Us */}
       <section id="about" className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">About Boo-Tie</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">About Us</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Boo-Tie Network is the bridge between schools seeking innovative solutions and the vendors and brands ready to provide them. We specialize in building partnerships that are genuinely beneficial for educational communities.
+              Kylene Pippin, a strategist and relationship builder in the fundraising space, started BowTie after spending the last 17+ years helping schools and vendors work together more effectively.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Our team brings decades of experience in education, athletics, and corporate sponsorship to create connections that drive campus improvement and generate sustainable revenue.
+              She brings a calm, thoughtful and deeply rational approach to every partnership — always prioritizing clarity, trust and long-term success for all parties involved.
             </p>
           </div>
-          <div className="bg-light-gray rounded-2xl aspect-[4/3] flex items-center justify-center">
-            <span className="text-gray-400 text-sm">Image Placeholder</span>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">What&apos;s in a Name</h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              BowTie is inspired by my sons, Bo and Ty — the original &ldquo;Bow&rdquo; and &ldquo;Tie.&rdquo; And while our equally cherished youngest son, Gage, isn&apos;t in the name, he already gets plenty of attention as the baby of the family.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              The name reflects the heart behind our work: tying together the people and partnerships that shape the future for kids like mine.
+            </p>
           </div>
         </div>
       </section>
@@ -74,7 +83,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">Our Vision</h2>
           <p className="text-gray-600 leading-relaxed text-lg">
-            We envision a world where every school has access to best-in-class resources through transparent, mutually beneficial partnerships. By connecting schools with vetted vendors and respected national brands, we create an ecosystem where educational excellence and smart business go hand in hand.
+            BowTie is a school-safe network that seamlessly connects schools, trusted vendors, and national brands — all through one reliable partner. Designed to simplify collaboration and ensure alignment, BowTie turns connections into long-term partnerships that deliver real value, unlocking opportunities for the students who will lead tomorrow.
           </p>
         </div>
       </section>
@@ -82,7 +91,10 @@ export default function Home() {
       {/* Why Work With Us */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-16">Why Work With Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Why Work with Us</h2>
+          <p className="text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            BowTie provides the infrastructure, technology, and strategic support that helps schools generate revenue, provides vendors scale, and enables national brands to activate meaningful campaigns in the K-12 space. BowTie is not an agency — it&apos;s a Platform, a Network, an Ecosystem of industry leaders.
+          </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {FEATURES.map((f) => (
               <div
@@ -101,7 +113,10 @@ export default function Home() {
       {/* Partners */}
       <section id="partners" className="py-24 bg-light-gray">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-16">Our Partners</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Our Partners</h2>
+          <p className="text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            BowTie is committed to working only with the best brands, companies and people, because that is the only way the Network is successful. We have strategic relationships with the leaders of all of our partners, which results in long-term wins!
+          </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {PARTNERS.map((p) => (
               <Link
@@ -125,7 +140,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-16">What People Are Saying</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-16">Testimonials</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {TESTIMONIALS.map((t) => (
               <div key={t.name} className="bg-light-gray rounded-xl p-8">
@@ -140,12 +155,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Kylene Pippin */}
+      <section className="py-16 bg-navy text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h3 className="text-2xl font-bold text-white mb-2">Kylene Pippin</h3>
+          <p className="text-white/70">Founder &amp; CEO, BowTie Network</p>
+        </div>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="py-24 bg-light-gray">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Let&apos;s Connect</h2>
           <p className="text-gray-600 text-center mb-12 max-w-xl mx-auto">
-            Ready to explore how Boo-Tie can help your school, brand, or business? Drop us a line.
+            Ready to explore how BowTie can help your school, brand, or business? Drop us a line.
           </p>
           <ContactForm />
         </div>

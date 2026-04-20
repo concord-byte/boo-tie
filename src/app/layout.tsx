@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Boo-Tie Network — Connecting Schools, Vendors & Brands",
+  title: "BowTie Network — Connecting Schools, Vendors & Brands",
   description:
     "A network where schools, best-in-class vendors and respected brands all win together. Campus revenue, sponsorship, and strategic partnerships.",
 };

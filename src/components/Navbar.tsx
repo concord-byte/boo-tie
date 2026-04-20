@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-navy shadow-md">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-white text-2xl font-bold tracking-tight">
-          Boo-Tie
+          <span className="text-gold">Bow</span>Tie
         </Link>
 
         {/* Desktop */}

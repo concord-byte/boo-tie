@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <Link href="/" className="text-2xl font-bold tracking-tight">
-              Boo-Tie
+              <span className="text-gold">Bow</span>Tie
             </Link>
             <p className="mt-2 text-white/60 text-sm max-w-xs">
               Connecting schools, best-in-class vendors, and respected brands — everyone wins.
@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-white/10 text-center text-white/40 text-xs">
-          &copy; {new Date().getFullYear()} Boo-Tie Network. All rights reserved.
+          &copy; {new Date().getFullYear()} BowTie Network. All rights reserved.
         </div>
       </div>
     </footer>

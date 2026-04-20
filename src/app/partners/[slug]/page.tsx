@@ -66,7 +66,7 @@ export default async function PartnerPage({
             Get in Touch
           </h3>
           <p className="text-gray-500 mb-6">
-            Interested in learning more? Fill out the form below and a Boo-Tie
+            Interested in learning more? Fill out the form below and a BowTie
             representative will connect you with {partner.name}.
           </p>
           <PartnerLeadForm
@@ -78,7 +78,7 @@ export default async function PartnerPage({
 
       {/* Footer */}
       <footer className="border-t border-navy/10 py-8 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Boo-Tie. All rights reserved.
+        &copy; {new Date().getFullYear()} BowTie. All rights reserved.
       </footer>
     </div>
   );
