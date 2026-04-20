@@ -20,7 +20,7 @@ export default async function PartnerPage({
       <header className="bg-navy text-white py-6 px-6 shadow-md">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-bold tracking-tight">
-            <span className="text-gold">Boo</span>-Tie
+            <span className="text-gold">Bow</span>Tie
           </h1>
           <span className="text-sm text-white/70">Partner Program</span>
         </div>

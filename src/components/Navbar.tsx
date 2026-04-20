@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Vision", href: "#vision" },
+  { label: "About Us", href: "#about" },
   { label: "Partners", href: "#partners" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -14,10 +15,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-navy shadow-md">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-white text-2xl font-bold tracking-tight">
-          <span className="text-gold">Bow</span>Tie
+        <Link href="/">
+          <Image
+            src="/images/bowtie-logo-full.png"
+            alt="BowTie School Partners"
+            width={159}
+            height={62}
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop */}
@@ -26,7 +33,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-white/80 hover:text-gold transition-colors text-sm font-medium"
+                className="text-gray-700 hover:text-navy transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -37,7 +44,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-navy focus:outline-none"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,13 +59,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-navy border-t border-white/10 px-6 pb-4">
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 pb-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-white/80 hover:text-gold transition-colors text-sm font-medium"
+              className="block py-3 text-gray-700 hover:text-navy transition-colors text-sm font-medium"
             >
               {link.label}
             </a>
