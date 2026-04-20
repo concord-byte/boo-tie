@@ -11,7 +11,7 @@ export const PARTNERS: PartnerInfo[] = [
   {
     slug: "luxedo",
     name: "Luxedo",
-    logo: "/images/partner-luxedo.webp",
+    logo: "/images/partner-luxedo.png",
     website: "https://www.luxedoprojection.com",
     description:
       "Pro-level projection solutions for schools, events, and athletic venues.",
@@ -21,7 +21,7 @@ export const PARTNERS: PartnerInfo[] = [
   {
     slug: "boostr-digital-displays",
     name: "Boostr Digital Displays",
-    logo: "/images/partner-boostr.jpg",
+    logo: "/images/partner-boostr.png",
     website: "https://www.boostrdigitaldisplays.com",
     description:
       "Dynamic digital display solutions for schools, stadiums, and campus environments.",
