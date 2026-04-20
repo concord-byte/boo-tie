@@ -303,7 +303,7 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="/images/bruce-brown.jpg"
+                src="/images/bruce-brown.png"
                 alt="In honor of Bruce Brown"
                 width={710}
                 height={410}
