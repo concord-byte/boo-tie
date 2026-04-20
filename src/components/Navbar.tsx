@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "About Us", href: "#about" },
-  { label: "Partners", href: "#partners" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Partners", href: "/#partners" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -55,7 +55,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="#contact"
+              href="/#contact"
               className="bg-gold text-navy rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-gold-light hover:scale-105 transition-all duration-300"
             >
               Connect with Ky
@@ -97,7 +97,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="inline-block mt-3 bg-gold text-navy rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-gold-light transition-all duration-300"
           >

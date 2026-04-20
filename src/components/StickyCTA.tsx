@@ -22,7 +22,7 @@ export default function StickyCTA() {
           Ready to partner with BowTie?
         </p>
         <a
-          href="#contact"
+          href="/#contact"
           className="bg-gold hover:bg-gold-light text-navy font-semibold py-2.5 px-8 rounded-full text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-gold/20"
         >
           Connect with Ky
