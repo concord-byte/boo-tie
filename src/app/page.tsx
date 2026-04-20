@@ -289,16 +289,28 @@ export default function Home() {
       </section>
 
       {/* ═══ IN HONOR OF BRUCE BROWN ═══ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-md mx-auto px-6 text-center">
-          <Image
-            src="/images/bruce-brown.jpg"
-            alt="In honor of Bruce Brown"
-            width={120}
-            height={135}
-            className="rounded-xl mx-auto mb-4 shadow-sm"
-          />
-          <p className="text-gray-500 italic text-sm">in honor of Bruce Brown</p>
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 items-center">
+            <div>
+              <p className="text-sm font-medium text-gold tracking-wide uppercase mb-3">
+                A tribute
+              </p>
+              <h3 className="text-3xl md:text-4xl font-light text-gray-900 italic mb-4">
+                in honor of<br />Bruce Brown
+              </h3>
+              <div className="w-16 h-px bg-gold/40" />
+            </div>
+            <div>
+              <Image
+                src="/images/bruce-brown.jpg"
+                alt="In honor of Bruce Brown"
+                width={710}
+                height={410}
+                className="rounded-2xl shadow-lg w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
