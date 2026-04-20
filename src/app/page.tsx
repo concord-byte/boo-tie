@@ -5,29 +5,12 @@ import ContactForm from "@/components/ContactForm";
 import QuickCapture from "@/components/QuickCapture";
 import StickyCTA from "@/components/StickyCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import AudienceCards from "@/components/AudienceCards";
 
 const STATS = [
   { number: "17+", label: "Years Experience" },
   { number: "50+", label: "Schools Served" },
   { number: "6", label: "National Brand Partners" },
-];
-
-const SERVICES_SCHOOLS = [
-  "Campus Revenue Assessment",
-  "AI Powered Sponsorship Generation",
-  "Budget Support & Preferred Pricing",
-];
-
-const SERVICES_VENDORS = [
-  "Business Development Support",
-  "Local Activation Planning",
-  "Measurable Results",
-];
-
-const SERVICES_BRANDS = [
-  "Strategy & Implementation",
-  "Revenue Generation",
-  "Relationship Management",
 ];
 
 const TESTIMONIALS = [
@@ -117,76 +100,39 @@ export default function Home() {
       <section id="how-it-works" className="py-20 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollAnimator>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-                Why Work with BowTie
+            <div className="mb-14">
+              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+                Why Work with Us
               </h2>
-              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-                <span className="font-semibold text-gray-900">BowTie</span> provides the infrastructure, technology, and strategic support that helps schools generate revenue, provides vendors scale, and enables national brands to activate meaningful campaigns in the K-12 space.
+              <p className="text-gray-600 text-lg max-w-2xl">
+                <span className="font-semibold text-gray-900">BowTie</span> is not an agency — it&apos;s a Platform, a Network, an Ecosystem of industry leaders.
               </p>
             </div>
           </ScrollAnimator>
 
-          {/* For Schools / For Vendors / For Brands */}
-          <ScrollAnimator>
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-500">
-                <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" /></svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">For Schools</h3>
-                <p className="text-sm text-gray-500 mb-4">Generate revenue and find trusted partners</p>
-                <ul className="space-y-2">
-                  {SERVICES_SCHOOLS.map((s) => (
-                    <li key={s} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-gold mt-0.5">&#10003;</span> {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-500">
-                <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">For Vendors</h3>
-                <p className="text-sm text-gray-500 mb-4">Scale your reach into the K-12 space</p>
-                <ul className="space-y-2">
-                  {SERVICES_VENDORS.map((s) => (
-                    <li key={s} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-gold mt-0.5">&#10003;</span> {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-500">
-                <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">For National Brands</h3>
-                <p className="text-sm text-gray-500 mb-4">Activate meaningful K-12 campaigns</p>
-                <ul className="space-y-2">
-                  {SERVICES_BRANDS.map((s) => (
-                    <li key={s} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-gold mt-0.5">&#10003;</span> {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </ScrollAnimator>
-
-          {/* Hub diagram */}
-          <ScrollAnimator>
-            <div className="flex justify-center">
+          {/* Two-column: cards left, hub diagram right */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <AudienceCards />
+            <div className="hidden md:flex justify-center">
               <Image
                 src="/images/hub-diagram.png"
                 alt="BowTie ecosystem — Schools, Trusted Vendors, and National Brands connected through BowTie"
                 width={912}
                 height={607}
-                className="max-w-3xl w-full h-auto drop-shadow-lg"
+                className="w-full h-auto drop-shadow-lg"
               />
             </div>
-          </ScrollAnimator>
+          </div>
+          {/* Mobile: show diagram below cards */}
+          <div className="md:hidden mt-10 flex justify-center">
+            <Image
+              src="/images/hub-diagram.png"
+              alt="BowTie ecosystem"
+              width={912}
+              height={607}
+              className="w-full h-auto drop-shadow-lg"
+            />
+          </div>
         </div>
       </section>
 
