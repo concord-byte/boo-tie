@@ -8,8 +8,8 @@ const TESTIMONIALS = [
   {
     quote:
       "I have had the distinct pleasure of knowing and working with Ky for over 15 years. What began as a strategic business partnership, one that has significantly elevated the Kettering Fairmont Athletic Programs, has evolved into a valued, lifelong friendship. Ky truly understands the power of authentic connection; she works tirelessly to support her partners and possesses a rare dedication to seeing them succeed over the long term.",
-    name: "Tom Burton",
-    title: "Former Superintendent & WeEmpowerLLC Founder",
+    name: "Chris Weaver",
+    title: "CAA — Fairmont Athletic Department",
   },
   {
     quote:

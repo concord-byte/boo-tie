@@ -37,7 +37,7 @@ export const PARTNERS: PartnerInfo[] = [
   {
     slug: "fundwillow",
     name: "FundWillow",
-    logo: "/images/partner-fundwillow.png",
+    logo: "/images/partner-fundwillow-v2.png",
     website: null,
     description:
       "White-label fundraising platform for schools — donation management, campaign tools, and payment processing all under your brand.",

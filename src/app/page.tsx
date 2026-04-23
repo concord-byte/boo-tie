@@ -43,50 +43,35 @@ export default function Home() {
       <StickyCTA />
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="relative min-h-screen bg-gradient-to-br from-[#1a1a2e] to-navy overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-navy-light/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+      <section className="relative min-h-screen overflow-hidden">
+        <Image
+          src="/images/hero-hands.jpg"
+          alt="Team hands together"
+          fill
+          className="object-cover object-[65%_40%]"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e]/90 via-[#1a1a2e]/70 to-[#1a1a2e]/30" />
 
-        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 min-h-screen">
-          <div className="flex flex-col justify-center px-8 md:px-16 py-28 z-10">
-            <Image
-              src="/images/bowtie-logo-full.png"
-              alt="BowTie School Partners — tying it all together"
-              width={500}
-              height={195}
-              className="mb-10 brightness-200"
-              priority
-            />
-            <p className="text-white/70 text-xl md:text-2xl leading-relaxed font-light mb-8">
-              BowTie helps schools secure sponsorships, access fundraising tools, and connect with trusted distributors — while helping vendors and national brands build the right relationships inside school communities.
-            </p>
-            <p className="text-gold/80 text-sm font-medium tracking-wide uppercase mb-10">
-              A trusted relationship-led network for schools, distributors, and national brands
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="inline-block bg-gold hover:bg-gold-light text-navy font-semibold py-4 px-10 rounded-full hover:scale-105 transition-all duration-300 text-lg shadow-lg shadow-gold/20"
-              >
-                Connect with Ky
-              </a>
-              <a
-                href="#how-it-works"
-                className="inline-block border border-white/30 text-white/80 hover:text-white hover:border-white/60 font-medium py-4 px-10 rounded-full transition-all duration-300 text-lg"
-              >
-                See How It Works
-              </a>
-            </div>
-          </div>
-          <div className="relative hidden md:block">
-            <Image
-              src="/images/hero-hands.jpg"
-              alt="Team hands together"
-              fill
-              className="object-cover object-bottom rounded-bl-[3rem]"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e]/40 to-transparent" />
+        <div className="relative max-w-7xl mx-auto flex flex-col justify-center min-h-screen px-8 md:px-16 py-28 z-10">
+          <Image
+            src="/images/bowtie-logo-full.png"
+            alt="BowTie School Partners — tying it all together"
+            width={500}
+            height={195}
+            className="mb-10 brightness-200"
+            priority
+          />
+          <p className="text-white/80 text-xl md:text-2xl leading-relaxed font-light mb-8 max-w-xl">
+            a network where schools, best-in-class vendors and respected brands all win together
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              className="inline-block bg-gold hover:bg-gold-light text-navy font-semibold py-4 px-10 rounded-full hover:scale-105 transition-all duration-300 text-lg shadow-lg shadow-gold/20"
+            >
+              Connect with Ky
+            </a>
           </div>
         </div>
       </section>
