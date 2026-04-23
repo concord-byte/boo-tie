@@ -83,7 +83,7 @@ export default function Home() {
               src="/images/hero-hands.jpg"
               alt="Team hands together"
               fill
-              className="object-cover rounded-bl-[3rem]"
+              className="object-cover object-bottom rounded-bl-[3rem]"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e]/40 to-transparent" />
@@ -134,7 +134,7 @@ export default function Home() {
                   <div className="w-10 h-10 bg-gold text-navy rounded-full font-bold flex items-center justify-center text-sm mb-4 relative z-10">
                     {i + 1}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{step.title}</h3>
+                  <h3 className="font-semibold text-navy mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-600">{step.desc}</p>
                 </div>
               ))}
@@ -160,7 +160,7 @@ export default function Home() {
             </div>
           </ScrollAnimator>
 
-          <div className="grid md:grid-cols-[2fr_3fr] gap-12 items-center">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
             <AudienceCards />
             <div className="hidden md:flex justify-center items-center">
               <Image

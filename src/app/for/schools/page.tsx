@@ -55,7 +55,7 @@ export default function ForSchools() {
                   <span className="text-gold font-bold text-sm">{i + 1}</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{b.title}</h3>
+                  <h3 className="text-lg font-semibold text-navy mb-2">{b.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{b.desc}</p>
                 </div>
               </div>
