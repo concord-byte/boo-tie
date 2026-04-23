@@ -40,14 +40,18 @@ export default function PartnersPage() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">{partner.name}</h3>
-                  <a
-                    href={partner.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-navy hover:underline"
-                  >
-                    {partner.website.replace("https://www.", "")}
-                  </a>
+                  {partner.website ? (
+                    <a
+                      href={partner.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-navy hover:underline"
+                    >
+                      {partner.website.replace("https://www.", "")}
+                    </a>
+                  ) : (
+                    <span className="text-xs text-gray-400">Coming soon</span>
+                  )}
                 </div>
                 <button
                   onClick={() => toggle(partner.slug)}

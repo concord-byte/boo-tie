@@ -198,40 +198,65 @@ export default function Home() {
             </div>
           </ScrollAnimator>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {PARTNERS.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/partners/${p.slug}`}
-                className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 ${
-                  p.tier === "premier"
-                    ? "border-gold/40 hover:border-gold"
-                    : "border-gray-100 hover:border-gold"
-                }`}
-              >
-                <span
-                  className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 ${
+            {PARTNERS.map((p) => {
+              const inner = (
+                <>
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 ${
+                      p.tier === "premier"
+                        ? "bg-gold/10 text-gold"
+                        : "bg-gray-100 text-gray-500"
+                    }`}
+                  >
+                    {p.tier === "premier" ? "Premier Partner" : "Preferred Vendor"}
+                  </span>
+                  <div className="flex items-center justify-center min-h-[140px] mb-4">
+                    <Image
+                      src={p.logo}
+                      alt={p.name}
+                      width={240}
+                      height={150}
+                      className="object-contain max-h-[130px] group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500 mb-3">{p.description}</p>
+                  {p.waitlist ? (
+                    <span className="text-sm font-semibold text-green-700 bg-green-50 px-4 py-1.5 rounded-full">
+                      Join the Waitlist
+                    </span>
+                  ) : (
+                    <span className="text-sm font-medium text-gold group-hover:text-gold-light transition-colors">
+                      Learn More &rarr;
+                    </span>
+                  )}
+                </>
+              );
+
+              if (p.waitlist) {
+                return (
+                  <div
+                    key={p.slug}
+                    className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-500 border-gray-100`}
+                  >
+                    {inner}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={p.slug}
+                  href={`/partners/${p.slug}`}
+                  className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 ${
                     p.tier === "premier"
-                      ? "bg-gold/10 text-gold"
-                      : "bg-gray-100 text-gray-500"
+                      ? "border-gold/40 hover:border-gold"
+                      : "border-gray-100 hover:border-gold"
                   }`}
                 >
-                  {p.tier === "premier" ? "Premier Partner" : "Preferred Vendor"}
-                </span>
-                <div className="flex items-center justify-center min-h-[140px] mb-4">
-                  <Image
-                    src={p.logo}
-                    alt={p.name}
-                    width={240}
-                    height={150}
-                    className="object-contain max-h-[130px] group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <p className="text-sm text-gray-500 mb-3">{p.description}</p>
-                <span className="text-sm font-medium text-gold group-hover:text-gold-light transition-colors">
-                  Learn More &rarr;
-                </span>
-              </Link>
-            ))}
+                  {inner}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

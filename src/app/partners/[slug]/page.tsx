@@ -48,14 +48,20 @@ export default async function PartnerPage({
               <p className="text-lg font-medium text-navy-light italic">
                 &ldquo;{partner.adCopy}&rdquo;
               </p>
-              <a
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm text-gold hover:text-gold-light underline underline-offset-2"
-              >
-                Visit {partner.name} &rarr;
-              </a>
+              {partner.website ? (
+                <a
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm text-gold hover:text-gold-light underline underline-offset-2"
+                >
+                  Visit {partner.name} &rarr;
+                </a>
+              ) : (
+                <span className="inline-block text-sm font-semibold text-green-700 bg-green-50 px-4 py-1.5 rounded-full">
+                  Join the Waitlist
+                </span>
+              )}
             </div>
           </div>
         </section>

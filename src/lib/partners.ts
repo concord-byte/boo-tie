@@ -4,10 +4,11 @@ export interface PartnerInfo {
   slug: string;
   name: string;
   logo: string;
-  website: string;
+  website: string | null;
   description: string;
   adCopy: string;
   tier: PartnerTier;
+  waitlist?: boolean;
 }
 
 export const PARTNERS: PartnerInfo[] = [
@@ -36,13 +37,14 @@ export const PARTNERS: PartnerInfo[] = [
   {
     slug: "fundwillow",
     name: "FundWillow",
-    logo: "/images/partner-bowtie-fundraising.png",
-    website: "https://booster.matthuszar.com/partners#faq",
+    logo: "/images/partner-fundwillow.png",
+    website: null,
     description:
       "White-label fundraising platform for schools — donation management, campaign tools, and payment processing all under your brand.",
     adCopy:
       "FundWillow — the fundraising infrastructure that lets schools raise more, faster.",
     tier: "preferred",
+    waitlist: true,
   },
 ];
 
