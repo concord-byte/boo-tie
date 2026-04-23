@@ -151,7 +151,7 @@ export default function Home() {
 
       {/* ═══ 4. AUDIENCE CARDS + HUB DIAGRAM ═══ */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[90rem] mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
@@ -160,9 +160,9 @@ export default function Home() {
             </div>
           </ScrollAnimator>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-[2fr_3fr] gap-12 items-center">
             <AudienceCards />
-            <div className="hidden md:flex justify-center">
+            <div className="hidden md:flex justify-center items-center">
               <Image
                 src="/images/hub-diagram.png"
                 alt="BowTie ecosystem — Schools, Trusted Vendors, and National Brands connected through BowTie"
