@@ -59,7 +59,7 @@ export default function Home() {
             alt="BowTie School Partners — tying it all together"
             width={500}
             height={195}
-            className="mb-10 brightness-200"
+            className="mb-10"
             priority
           />
           <p className="text-white/80 text-xl md:text-2xl leading-relaxed font-light mb-8 max-w-xl">
