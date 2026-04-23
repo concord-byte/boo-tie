@@ -42,7 +42,10 @@ export default function QuickCapture() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
       <input
+        id="quick-email"
+        name="email"
         type="email"
+        autoComplete="email"
         required
         placeholder="Your email"
         value={email}
@@ -50,6 +53,9 @@ export default function QuickCapture() {
         className="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold/50 text-sm"
       />
       <select
+        id="quick-role"
+        name="role"
+        autoComplete="organization-title"
         value={role}
         onChange={(e) => setRole(e.target.value)}
         className="bg-white/10 border border-white/20 rounded-full px-5 py-3 text-white/80 focus:outline-none focus:ring-2 focus:ring-gold/50 text-sm appearance-none"

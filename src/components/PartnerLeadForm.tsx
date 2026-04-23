@@ -100,6 +100,7 @@ export default function PartnerLeadForm({
             id="firstName"
             name="firstName"
             type="text"
+            autoComplete="given-name"
             required
             className={inputClass}
             placeholder="Jane"
@@ -116,6 +117,7 @@ export default function PartnerLeadForm({
             id="lastName"
             name="lastName"
             type="text"
+            autoComplete="family-name"
             required
             className={inputClass}
             placeholder="Smith"
@@ -134,6 +136,7 @@ export default function PartnerLeadForm({
           id="email"
           name="email"
           type="email"
+          autoComplete="email"
           required
           className={inputClass}
           placeholder="jane@school.edu"
@@ -152,6 +155,7 @@ export default function PartnerLeadForm({
             id="company"
             name="company"
             type="text"
+            autoComplete="organization"
             className={inputClass}
             placeholder="Lincoln High School"
           />
@@ -167,6 +171,7 @@ export default function PartnerLeadForm({
             id="phone"
             name="phone"
             type="tel"
+            autoComplete="tel"
             className={inputClass}
             placeholder="(555) 123-4567"
           />

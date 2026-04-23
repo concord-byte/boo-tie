@@ -52,31 +52,31 @@ export default function ContactForm() {
         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
           First Name
         </label>
-        <input id="firstName" name="firstName" required className={inputClass} placeholder="First Name" />
+        <input id="firstName" name="firstName" autoComplete="given-name" required className={inputClass} placeholder="First Name" />
       </div>
       <div>
         <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
           Last Name
         </label>
-        <input id="lastName" name="lastName" required className={inputClass} placeholder="Last Name" />
+        <input id="lastName" name="lastName" autoComplete="family-name" required className={inputClass} placeholder="Last Name" />
       </div>
       <div>
         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
           Company / School
         </label>
-        <input id="company" name="company" className={inputClass} placeholder="Company / School" />
+        <input id="company" name="company" autoComplete="organization" className={inputClass} placeholder="Company / School" />
       </div>
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
           Email
         </label>
-        <input id="email" name="email" type="email" required className={inputClass} placeholder="Email" />
+        <input id="email" name="email" type="email" autoComplete="email" required className={inputClass} placeholder="Email" />
       </div>
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
           Phone
         </label>
-        <input id="phone" name="phone" type="tel" className={inputClass} placeholder="Phone" />
+        <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputClass} placeholder="Phone" />
       </div>
       <div>
         <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
