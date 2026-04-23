@@ -1,3 +1,5 @@
+export type PartnerTier = "premier" | "preferred";
+
 export interface PartnerInfo {
   slug: string;
   name: string;
@@ -5,6 +7,7 @@ export interface PartnerInfo {
   website: string;
   description: string;
   adCopy: string;
+  tier: PartnerTier;
 }
 
 export const PARTNERS: PartnerInfo[] = [
@@ -17,26 +20,29 @@ export const PARTNERS: PartnerInfo[] = [
       "Pro-level projection solutions for schools, events, and athletic venues.",
     adCopy:
       "Luxedo — Pro-Level Projection. Transform your campus with immersive projection experiences.",
+    tier: "premier",
   },
   {
-    slug: "boostr-digital-displays",
-    name: "Boostr Digital Displays",
-    logo: "/images/partner-boostr.png",
+    slug: "digital-scoreboards-ohio",
+    name: "Digital Scoreboards Ohio",
+    logo: "/images/partner-dso.png",
+    website: "https://digitalscoreboardsohio.com",
+    description:
+      "Authorized dealer, installer, and service provider of scoreboards, video displays, and sound systems for sports venues throughout Ohio.",
+    adCopy:
+      "Digital Scoreboards Ohio — Your Gameday Partner. Boost your event impact with professional-grade AV equipment.",
+    tier: "preferred",
+  },
+  {
+    slug: "fundwillow",
+    name: "FundWillow",
+    logo: "/images/partner-bowtie-fundraising.png",
     website: "https://booster.matthuszar.com/partners#faq",
     description:
-      "Dynamic digital display solutions for schools, stadiums, and campus environments.",
+      "White-label fundraising platform for schools — donation management, campaign tools, and payment processing all under your brand.",
     adCopy:
-      "Boostr Digital Displays — powering the future of campus signage and sponsorship visibility.",
-  },
-  {
-    slug: "bowtie-fundraising",
-    name: "BowTie Fundraising",
-    logo: "/images/partner-bowtie-fundraising.png",
-    website: "https://www.bowtienetwork.com",
-    description:
-      "School fundraising solutions powered by the BowTie network — maximizing revenue for campuses nationwide.",
-    adCopy:
-      "BowTie Fundraising — turning school partnerships into sustainable campus revenue.",
+      "FundWillow — the fundraising infrastructure that lets schools raise more, faster.",
+    tier: "preferred",
   },
 ];
 

@@ -11,11 +11,11 @@ const BENEFITS = [
   },
   {
     title: "Local Activation Planning",
-    desc: "National reach, local execution. We help you plan and activate campaigns tailored to individual school communities, so your brand shows up where it matters.",
+    desc: "Every school community is different. We help you tailor your outreach, sponsorships, and touchpoints so your brand lands with relevance and credibility at the local level.",
   },
   {
-    title: "Measurable Results",
-    desc: "Data-driven reporting that proves ROI. Know exactly which partnerships are performing and where to double down.",
+    title: "Sales Results",
+    desc: "We combine deep school relationships with hands‑on sales expertise to give you clarity on what’s converting. You’ll know which outreach is working, which partnerships are paying off, and where to focus to grow faster.",
   },
 ];
 
@@ -64,10 +64,10 @@ export default function ForVendors() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <blockquote className="text-xl italic text-gray-600 mb-4">
-            &ldquo;Kylene&rsquo;s approach is so consultative, a true partner&rdquo;
+            &ldquo;Kylene is an absolute gem. She quickly saw into our school&rsquo;s heart and unique needs to offer creative, actionable solutions.&rdquo;
           </blockquote>
           <p className="font-semibold text-navy">Jennifer Ripley</p>
-          <p className="text-sm text-gray-500">Valor Christian (GA) High School Booster Club President</p>
+          <p className="text-sm text-gray-500">Valor Christian Academy Athletics Booster Club</p>
         </div>
       </section>
 

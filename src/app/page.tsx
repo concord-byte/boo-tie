@@ -10,15 +10,15 @@ import AudienceCards from "@/components/AudienceCards";
 const TESTIMONIALS = [
   {
     quote:
-      "Their professionalism and attention to detail have allowed our projects come off without a hitch",
-    name: "Mike Graefe",
-    title: "Meridian (ID) High School Athletic Director",
+      "Working with Ky has been revolutionary in increasing opportunities for students. Her visionary approach to creating partnerships has empowered students to thrive and succeed.",
+    name: "Tom Burton",
+    title: "Former Superintendent & WeEmpowerLLC Founder",
   },
   {
     quote:
-      "Kylene\u2019s approach is so consultative, a true partner",
+      "Kylene is an absolute gem. She has a gift for connecting on a personal level while maintaining total professionalism. This isn\u2019t just another lead-generation service; Kylene provides a truly comprehensive consultancy.",
     name: "Jennifer Ripley",
-    title: "Valor Christian (GA) High School Booster Club President",
+    title: "Valor Christian Academy Athletics Booster Club",
   },
 ];
 
@@ -32,7 +32,7 @@ const STEPS = [
 
 const TRUST_ITEMS = [
   { bold: "17+", label: "Years in K-12 Fundraising" },
-  { bold: "50+", label: "Schools Served" },
+  { bold: "1,000+", label: "Schools Served" },
   { bold: "Vetted", label: "Partner Network" },
   { bold: "Relationships", label: "First" },
 ];
@@ -160,7 +160,7 @@ export default function Home() {
             </div>
           </ScrollAnimator>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
             <AudienceCards />
             <div className="hidden md:flex justify-center">
               <Image
@@ -168,7 +168,7 @@ export default function Home() {
                 alt="BowTie ecosystem — Schools, Trusted Vendors, and National Brands connected through BowTie"
                 width={912}
                 height={607}
-                className="w-full h-auto drop-shadow-lg"
+                className="w-full max-w-[560px] h-auto drop-shadow-lg"
               />
             </div>
           </div>
@@ -197,13 +197,26 @@ export default function Home() {
               </p>
             </div>
           </ScrollAnimator>
-          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {PARTNERS.map((p) => (
               <Link
                 key={p.slug}
                 href={`/partners/${p.slug}`}
-                className="group bg-white border-2 border-gray-100 rounded-2xl p-8 flex flex-col items-center text-center hover:border-gold hover:shadow-xl transition-all duration-500"
+                className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 ${
+                  p.tier === "premier"
+                    ? "border-gold/40 hover:border-gold"
+                    : "border-gray-100 hover:border-gold"
+                }`}
               >
+                <span
+                  className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 ${
+                    p.tier === "premier"
+                      ? "bg-gold/10 text-gold"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                >
+                  {p.tier === "premier" ? "Premier Partner" : "Preferred Vendor"}
+                </span>
                 <div className="flex items-center justify-center min-h-[140px] mb-4">
                   <Image
                     src={p.logo}
@@ -229,10 +242,10 @@ export default function Home() {
           <ScrollAnimator>
             <div className="text-center mb-14">
               <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
-                Built on Trust
+                Real Relationships. Real Results.
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Real relationships. Real results. Hear from the people we work with.
+                Hear from the people we work with.
               </p>
             </div>
           </ScrollAnimator>
@@ -253,6 +266,14 @@ export default function Home() {
                 </div>
               </ScrollAnimator>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/testimonials"
+              className="text-sm font-medium text-gold hover:text-gold-light transition-colors duration-300"
+            >
+              Read all testimonials &rarr;
+            </Link>
           </div>
         </div>
       </section>
@@ -298,12 +319,12 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-lg mb-6">
                   Kylene built BowTie to turn 17 years of relationships into a system that helps schools, vendors, and brands win together — every time.
                 </p>
-                <a
-                  href="#testimonials"
+                <Link
+                  href="/testimonials"
                   className="text-sm font-medium text-gold hover:text-gold-light transition-colors duration-300"
                 >
                   Read what partners say about working with Kylene &rarr;
-                </a>
+                </Link>
               </div>
             </div>
           </ScrollAnimator>
@@ -316,7 +337,7 @@ export default function Home() {
                 What&apos;s in a Name
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-5">
-                <span className="font-semibold text-gray-900">BowTie</span> is inspired by my sons, Bo and Ty — the original &ldquo;Bow&rdquo; and &ldquo;Tie.&rdquo; And while our equally cherished youngest son, Gage, isn&apos;t in the name, he already gets plenty of attention as the baby of the family.
+                <span className="font-semibold text-gray-900">BowTie</span>{" "}is inspired by my sons, Bo and Ty — the original &ldquo;Bow&rdquo; and &ldquo;Tie.&rdquo; And while our equally cherished youngest son, Gage, isn&apos;t in the name, he already gets plenty of attention as the baby of the family.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg">
                 The name reflects the heart behind our work: tying together the people and partnerships that shape the future for kids like mine.

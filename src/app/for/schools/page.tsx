@@ -17,6 +17,10 @@ const BENEFITS = [
     title: "Budget Support & Preferred Pricing",
     desc: "Access preferred pricing from our vendor network and strategic budget planning to make every dollar work harder for your students.",
   },
+  {
+    title: "National Brand Activation",
+    desc: "We’re building the national infrastructure that finally lets national brands activate at scale inside the K‑12 ecosystem.",
+  },
 ];
 
 export default function ForSchools() {
@@ -64,10 +68,10 @@ export default function ForSchools() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <blockquote className="text-xl italic text-gray-600 mb-4">
-            &ldquo;Their professionalism and attention to detail have allowed our projects come off without a hitch&rdquo;
+            &ldquo;Working with Ky has been revolutionary in increasing opportunities for students. Her visionary approach to creating partnerships has empowered students to thrive and succeed.&rdquo;
           </blockquote>
-          <p className="font-semibold text-navy">Mike Graefe</p>
-          <p className="text-sm text-gray-500">Meridian (ID) High School Athletic Director</p>
+          <p className="font-semibold text-navy">Tom Burton</p>
+          <p className="text-sm text-gray-500">Former Superintendent & WeEmpowerLLC Founder</p>
         </div>
       </section>
 
