@@ -1,48 +1,9 @@
 import ScrollAnimator from "@/components/ScrollAnimator";
+import { getActiveTestimonials } from "@/lib/content";
 
 export const metadata = {
   title: "Testimonials — BowTie School Partners",
 };
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "I have had the distinct pleasure of knowing and working with Ky for over 15 years. What began as a strategic business partnership, one that has significantly elevated the Kettering Fairmont Athletic Programs, has evolved into a valued, lifelong friendship. Ky truly understands the power of authentic connection; she works tirelessly to support her partners and possesses a rare dedication to seeing them succeed over the long term.",
-    name: "Chris Weaver",
-    title: "CAA — Fairmont Athletic Department",
-  },
-  {
-    quote:
-      "Kylene is an absolute gem. Within minutes, it felt like I was brainstorming Booster fundraising ideas with a lifelong friend. She has a gift for connecting on a personal level while maintaining total professionalism. She quickly saw into our school's heart and unique needs to offer creative, actionable solutions. This isn't just another lead-generation service; Kylene provides a truly comprehensive consultancy. My only regret is not reaching out sooner!",
-    name: "Jennifer Ripley",
-    title: "Valor Christian Academy Athletics Booster Club",
-  },
-  {
-    quote:
-      "Working with Ky has been revolutionary in increasing opportunities for students. Her visionary approach to creating partnerships has empowered students to thrive and succeed. Ky's dedication to collaboration is truly inspiring.",
-    name: "Tom Burton",
-    title: "Former Superintendent & WeEmpowerLLC Founder",
-  },
-  {
-    quote:
-      "Kylene Pippin has provided phenomenal guidance and customer service with each project.",
-    name: "Chuck Jaco",
-    title: "Perrysburg High School, OH Athletic Director",
-  },
-  {
-    quote:
-      "Kylene Pippin is a great representative to work with and is very attentive to our needs!",
-    name: "Jeff Cassella",
-    title: "Mentor High School, OH Athletic Director",
-  },
-  {
-    quote:
-      "Lakota West has worked with Ky for more than a decade, and her leadership has consistently delivered meaningful results for our athletic department. Through her guidance, we generated significant revenue that allowed us to upgrade scoreboards, scorer’s tables, and make important facility improvements that directly benefited our student-athletes.\n\nKy has always been accessible, solutions-oriented, and committed to supporting our needs. Her professionalism and follow-through made a real difference for Lakota West, and I’ve appreciated the partnership we built over the years.",
-    name: "Scott Kaufman",
-    title:
-      "Retired Athletic Director, Lakota West High School (OH); OHSAA Board Member",
-  },
-];
 
 type CardStyle = "navy" | "light" | "gold";
 const CARD_STYLES: CardStyle[] = ["navy", "light", "gold", "navy", "light", "gold"];
@@ -82,7 +43,9 @@ function getTitleColor(style: CardStyle) {
   return style === "navy" ? "text-white/60" : "text-gray-500";
 }
 
-export default function TestimonialsPage() {
+export default async function TestimonialsPage() {
+  const testimonials = await getActiveTestimonials();
+
   return (
     <div className="pt-16">
       <section className="bg-navy py-20">
@@ -98,7 +61,7 @@ export default function TestimonialsPage() {
 
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 space-y-10">
-          {TESTIMONIALS.map((t, i) => {
+          {testimonials.map((t, i) => {
             const style = CARD_STYLES[i % CARD_STYLES.length];
             return (
               <ScrollAnimator key={i}>

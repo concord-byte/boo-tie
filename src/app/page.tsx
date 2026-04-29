@@ -1,26 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PARTNERS } from "@/lib/partners";
+import { getActiveVendors, getFeaturedTestimonials } from "@/lib/content";
 import ContactForm from "@/components/ContactForm";
 import QuickCapture from "@/components/QuickCapture";
 import StickyCTA from "@/components/StickyCTA";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import AudienceCards from "@/components/AudienceCards";
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "Working with Ky has been revolutionary in increasing opportunities for students. Her visionary approach to creating partnerships has empowered students to thrive and succeed.",
-    name: "Tom Burton",
-    title: "Former Superintendent & WeEmpowerLLC Founder",
-  },
-  {
-    quote:
-      "Kylene is an absolute gem. She has a gift for connecting on a personal level while maintaining total professionalism. This isn’t just another lead-generation service; Kylene provides a truly comprehensive consultancy.",
-    name: "Jennifer Ripley",
-    title: "Valor Christian Academy Athletics Booster Club",
-  },
-];
 
 const STEPS = [
   { title: "We Listen", desc: "Understand the school, vendor, or sponsor need" },
@@ -37,7 +22,10 @@ const TRUST_ITEMS = [
   { bold: "Relationships", label: "First" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const vendors = await getActiveVendors();
+  const featuredTestimonials = await getFeaturedTestimonials();
+
   return (
     <>
       <StickyCTA />
@@ -182,7 +170,7 @@ export default function Home() {
             </div>
           </ScrollAnimator>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {PARTNERS.map((p) => {
+            {vendors.map((p) => {
               const inner = (
                 <>
                   <span
@@ -196,19 +184,19 @@ export default function Home() {
                   </span>
                   <div className="flex items-center justify-center min-h-[140px] mb-4 bg-white rounded-xl p-4">
                     <Image
-                      src={p.logo}
-                      alt={p.name}
+                      src={p.logoUrl}
+                      alt={p.logoAlt || p.name}
                       width={240}
                       height={150}
                       className="object-contain max-h-[130px] group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <p className="text-sm text-white/70 mb-3">{p.description}</p>
-                  {p.waitlist ? (
+                  {p.isWaitlist ? (
                     <span className="text-sm font-semibold text-green-300 bg-green-900/30 px-4 py-1.5 rounded-full">
                       Join the Waitlist
                     </span>
-                  ) : p.comingSoon ? (
+                  ) : p.isComingSoon ? (
                     <span className="text-sm font-medium text-white/50">
                       Coming Soon
                     </span>
@@ -220,7 +208,7 @@ export default function Home() {
                 </>
               );
 
-              if (p.waitlist || p.comingSoon) {
+              if (p.isWaitlist || p.isComingSoon) {
                 return (
                   <div
                     key={p.slug}
@@ -263,7 +251,7 @@ export default function Home() {
             </div>
           </ScrollAnimator>
           <div className="grid md:grid-cols-2 gap-8">
-            {TESTIMONIALS.map((t) => (
+            {featuredTestimonials.map((t) => (
               <ScrollAnimator key={t.name}>
                 <div className="bg-gold/10 border border-gold/20 rounded-2xl p-10 hover:shadow-lg hover:shadow-gold/10 transition-all duration-500">
                   <span className="text-5xl font-serif text-gold/40 leading-none block mb-3">

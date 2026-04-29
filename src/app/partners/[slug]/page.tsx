@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getPartnerBySlug } from "@/lib/partners";
+import { getVendorBySlug } from "@/lib/content";
 import PartnerLeadForm from "@/components/PartnerLeadForm";
 
 export default async function PartnerPage({
@@ -8,7 +8,7 @@ export default async function PartnerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const partner = getPartnerBySlug(slug);
+  const partner = await getVendorBySlug(slug);
 
   if (!partner) {
     notFound();
@@ -33,8 +33,8 @@ export default async function PartnerPage({
             <div className="shrink-0 w-16 h-16 rounded-xl bg-white border border-navy/10 flex items-center justify-center overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={partner.logo}
-                alt={`${partner.name} logo`}
+                src={partner.logoUrl}
+                alt={partner.logoAlt || `${partner.name} logo`}
                 className="w-10 h-10 object-contain"
               />
             </div>
@@ -45,12 +45,14 @@ export default async function PartnerPage({
               <p className="text-gray-600 leading-relaxed">
                 {partner.description}
               </p>
-              <p className="text-lg font-medium text-navy-light italic">
-                &ldquo;{partner.adCopy}&rdquo;
-              </p>
-              {partner.website ? (
+              {partner.adCopy && (
+                <p className="text-lg font-medium text-navy-light italic">
+                  &ldquo;{partner.adCopy}&rdquo;
+                </p>
+              )}
+              {partner.websiteUrl ? (
                 <a
-                  href={partner.website}
+                  href={partner.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block text-sm text-gold hover:text-gold-light underline underline-offset-2"
