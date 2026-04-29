@@ -9,6 +9,7 @@ export interface PartnerInfo {
   adCopy: string;
   tier: PartnerTier;
   waitlist?: boolean;
+  comingSoon?: boolean;
 }
 
 export const PARTNERS: PartnerInfo[] = [
@@ -45,6 +46,90 @@ export const PARTNERS: PartnerInfo[] = [
       "FundWillow — the fundraising infrastructure that lets schools raise more, faster.",
     tier: "preferred",
     waitlist: true,
+  },
+  {
+    slug: "beacon-creative",
+    name: "Beacon Creative",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Creative services and branding solutions for schools and athletic programs.",
+    adCopy:
+      "Beacon Creative — Elevating school brands through design and strategy.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "sievert-electric",
+    name: "Sievert Electric",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Electrical contracting and installation services for school facilities and venues.",
+    adCopy:
+      "Sievert Electric — Powering school facilities with reliable service.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "blazebite",
+    name: "BlazeBite",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Mobile ordering and concession management for school events and athletic venues.",
+    adCopy:
+      "BlazeBite — Streamlined concessions for school events.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "teamup",
+    name: "TeamUp",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Team management and coordination platform for athletic departments.",
+    adCopy:
+      "TeamUp — Bringing teams together with better coordination tools.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "we-empower-llc",
+    name: "We Empower LLC",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Empowering students and schools through strategic partnership development and leadership training.",
+    adCopy:
+      "We Empower LLC — Empowering the next generation of student leaders.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "omnibox",
+    name: "OmniBox",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Innovative solutions for school athletic programs and facilities.",
+    adCopy:
+      "OmniBox — Smart solutions for school athletics.",
+    tier: "preferred",
+    comingSoon: true,
+  },
+  {
+    slug: "apparel",
+    name: "Apparel",
+    logo: "/images/partner-placeholder.svg",
+    website: null,
+    description:
+      "Custom apparel and merchandise for schools and athletic programs.",
+    adCopy:
+      "Apparel — Custom gear for your school community.",
+    tier: "preferred",
+    comingSoon: true,
   },
 ];
 

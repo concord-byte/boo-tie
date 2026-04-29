@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 const FOOTER_LINKS = [
-  { label: "About Us", href: "/#about" },
+  { label: "Schools", href: "/for/schools" },
+  { label: "Vendors", href: "/for/vendors" },
+  { label: "National Brands", href: "/for/brands" },
   { label: "Partners", href: "/#partners" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/#contact" },

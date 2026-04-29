@@ -67,10 +67,10 @@ export default function AudienceCards() {
             key={a.id}
             onMouseEnter={() => setExpanded(a.id)}
             onMouseLeave={() => setExpanded(null)}
-            className={`bg-gray-50 rounded-2xl p-7 transition-all duration-500 cursor-pointer border-2 ${
+            className={`rounded-2xl p-7 transition-all duration-500 cursor-pointer border-2 ${
               isOpen
-                ? "border-gold shadow-xl"
-                : "border-transparent hover:border-gray-200"
+                ? "bg-green-100 border-gold shadow-xl"
+                : "bg-green-50 border-transparent hover:border-green-300"
             }`}
           >
             {/* Always visible: icon + title + tagline */}
@@ -79,8 +79,8 @@ export default function AudienceCards() {
                 {a.icon}
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">{a.title}</h3>
-                <p className="text-sm text-gray-500">{a.tagline}</p>
+                <h3 className="text-lg font-bold text-black">{a.title}</h3>
+                <p className="text-sm text-black/70">{a.tagline}</p>
               </div>
             </div>
 
@@ -92,7 +92,7 @@ export default function AudienceCards() {
             >
               <ul className="space-y-2 mb-5 pl-16">
                 {a.services.map((s) => (
-                  <li key={s} className="flex items-start gap-2 text-sm text-gray-600">
+                  <li key={s} className="flex items-start gap-2 text-sm text-black/80">
                     <span className="text-gold mt-0.5">&#10003;</span> {s}
                   </li>
                 ))}

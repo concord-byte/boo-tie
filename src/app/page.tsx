@@ -16,7 +16,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Kylene is an absolute gem. She has a gift for connecting on a personal level while maintaining total professionalism. This isn\u2019t just another lead-generation service; Kylene provides a truly comprehensive consultancy.",
+      "Kylene is an absolute gem. She has a gift for connecting on a personal level while maintaining total professionalism. This isn’t just another lead-generation service; Kylene provides a truly comprehensive consultancy.",
     name: "Jennifer Ripley",
     title: "Valor Christian Academy Athletics Booster Club",
   },
@@ -57,18 +57,18 @@ export default function Home() {
           <Image
             src="/images/bowtie-logo-full.png"
             alt="BowTie School Partners — tying it all together"
-            width={500}
-            height={195}
+            width={560}
+            height={218}
             className="mb-10"
             priority
           />
-          <p className="text-white/80 text-xl md:text-2xl leading-relaxed font-light mb-8 max-w-xl">
+          <p className="text-white/90 text-2xl md:text-3xl leading-relaxed font-light mb-8 max-w-xl">
             a network where schools, best-in-class vendors and respected brands all win together
           </p>
           <div className="flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="inline-block bg-gold hover:bg-gold-light text-navy font-semibold py-4 px-10 rounded-full hover:scale-105 transition-all duration-300 text-lg shadow-lg shadow-gold/20"
+              className="inline-block bg-gold hover:bg-gold-light text-navy font-bold py-4 px-10 rounded-full hover:scale-105 transition-all duration-300 text-lg shadow-lg shadow-gold/30"
             >
               Connect with Ky
             </a>
@@ -77,14 +77,14 @@ export default function Home() {
       </section>
 
       {/* ═══ 2. TRUST BAND ═══ */}
-      <section className="py-10 bg-white border-b border-gray-100">
+      <section className="py-12 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-0">
             {TRUST_ITEMS.map((item, i) => (
               <div key={item.label} className="flex items-center">
                 <div className="text-center px-6 md:px-10">
-                  <p className="text-2xl font-bold text-navy">{item.bold}</p>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">{item.label}</p>
+                  <p className="text-3xl font-extrabold text-navy">{item.bold}</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide mt-1 font-medium">{item.label}</p>
                 </div>
                 {i < TRUST_ITEMS.length - 1 && (
                   <div className="hidden md:block w-px h-10 bg-gray-200" />
@@ -96,11 +96,11 @@ export default function Home() {
       </section>
 
       {/* ═══ 3. HOW IT WORKS ═══ */}
-      <section id="how-it-works" className="py-20 md:py-24 bg-gray-50">
+      <section id="how-it-works" className="py-20 md:py-24 bg-gray-200">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 How BowTie Works
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -111,15 +111,14 @@ export default function Home() {
 
           <ScrollAnimator>
             <div className="relative grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-6">
-              {/* Connecting line (desktop only) */}
-              <div className="hidden md:block absolute top-5 left-[10%] right-[10%] border-t-2 border-gold/20" />
+              <div className="hidden md:block absolute top-5 left-[10%] right-[10%] border-t-2 border-gold/30" />
 
               {STEPS.map((step, i) => (
                 <div key={step.title} className="relative flex flex-col items-center text-center">
-                  <div className="w-10 h-10 bg-gold text-navy rounded-full font-bold flex items-center justify-center text-sm mb-4 relative z-10">
+                  <div className="w-12 h-12 bg-gold text-navy rounded-full font-bold flex items-center justify-center text-base mb-4 relative z-10 shadow-md shadow-gold/20">
                     {i + 1}
                   </div>
-                  <h3 className="font-semibold text-navy mb-2">{step.title}</h3>
+                  <h3 className="font-bold text-navy mb-2 text-lg">{step.title}</h3>
                   <p className="text-sm text-gray-600">{step.desc}</p>
                 </div>
               ))}
@@ -139,7 +138,7 @@ export default function Home() {
         <div className="max-w-[90rem] mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Who BowTie Serves
               </h2>
             </div>
@@ -170,14 +169,14 @@ export default function Home() {
       </section>
 
       {/* ═══ 5. PARTNERS ═══ */}
-      <section id="partners" className="py-20 md:py-24 bg-gray-50">
+      <section id="partners" className="py-20 md:py-24 bg-navy">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Trusted by Schools and Partners Nationwide
               </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 We work only with the best — strategic relationships that create long-term wins.
               </p>
             </div>
@@ -189,13 +188,13 @@ export default function Home() {
                   <span
                     className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 ${
                       p.tier === "premier"
-                        ? "bg-gold/10 text-gold"
-                        : "bg-gray-100 text-gray-500"
+                        ? "bg-gold/20 text-gold"
+                        : "bg-white/10 text-white/70"
                     }`}
                   >
                     {p.tier === "premier" ? "Premier Partner" : "Preferred Vendor"}
                   </span>
-                  <div className="flex items-center justify-center min-h-[140px] mb-4">
+                  <div className="flex items-center justify-center min-h-[140px] mb-4 bg-white rounded-xl p-4">
                     <Image
                       src={p.logo}
                       alt={p.name}
@@ -204,10 +203,14 @@ export default function Home() {
                       className="object-contain max-h-[130px] group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <p className="text-sm text-gray-500 mb-3">{p.description}</p>
+                  <p className="text-sm text-white/70 mb-3">{p.description}</p>
                   {p.waitlist ? (
-                    <span className="text-sm font-semibold text-green-700 bg-green-50 px-4 py-1.5 rounded-full">
+                    <span className="text-sm font-semibold text-green-300 bg-green-900/30 px-4 py-1.5 rounded-full">
                       Join the Waitlist
+                    </span>
+                  ) : p.comingSoon ? (
+                    <span className="text-sm font-medium text-white/50">
+                      Coming Soon
                     </span>
                   ) : (
                     <span className="text-sm font-medium text-gold group-hover:text-gold-light transition-colors">
@@ -217,11 +220,11 @@ export default function Home() {
                 </>
               );
 
-              if (p.waitlist) {
+              if (p.waitlist || p.comingSoon) {
                 return (
                   <div
                     key={p.slug}
-                    className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-500 border-gray-100`}
+                    className="group bg-white/5 border-2 border-white/10 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-500 backdrop-blur-sm"
                   >
                     {inner}
                   </div>
@@ -232,10 +235,10 @@ export default function Home() {
                 <Link
                   key={p.slug}
                   href={`/partners/${p.slug}`}
-                  className={`group bg-white border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 ${
+                  className={`group bg-white/5 border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-gold/10 transition-all duration-500 backdrop-blur-sm ${
                     p.tier === "premier"
                       ? "border-gold/40 hover:border-gold"
-                      : "border-gray-100 hover:border-gold"
+                      : "border-white/10 hover:border-gold/50"
                   }`}
                 >
                   {inner}
@@ -251,7 +254,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-14">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Real Relationships. Real Results.
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -262,15 +265,15 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {TESTIMONIALS.map((t) => (
               <ScrollAnimator key={t.name}>
-                <div className="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500">
-                  <span className="text-5xl font-serif text-gold/30 leading-none block mb-3">
+                <div className="bg-gold/10 border border-gold/20 rounded-2xl p-10 hover:shadow-lg hover:shadow-gold/10 transition-all duration-500">
+                  <span className="text-5xl font-serif text-gold/40 leading-none block mb-3">
                     &ldquo;
                   </span>
-                  <p className="text-gray-600 leading-relaxed italic text-lg mb-6">
+                  <p className="text-gray-700 leading-relaxed italic text-lg mb-6">
                     {t.quote}
                   </p>
                   <div>
-                    <p className="font-semibold text-navy">{t.name}</p>
+                    <p className="font-bold text-navy">{t.name}</p>
                     <p className="text-sm text-gray-500">{t.title}</p>
                   </div>
                 </div>
@@ -280,7 +283,7 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               href="/testimonials"
-              className="text-sm font-medium text-gold hover:text-gold-light transition-colors duration-300"
+              className="text-sm font-semibold text-gold hover:text-gold-light transition-colors duration-300"
             >
               Read all testimonials &rarr;
             </Link>
@@ -291,7 +294,7 @@ export default function Home() {
       {/* ═══ 7. MID-PAGE QUICK CAPTURE ═══ */}
       <section className="py-16 bg-navy">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h3 className="text-2xl md:text-3xl font-light text-white mb-3">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
             Ready to explore a partnership?
           </h3>
           <p className="text-white/60 mb-8 text-sm">
@@ -302,15 +305,15 @@ export default function Home() {
       </section>
 
       {/* ═══ 8. ABOUT KYLENE ═══ */}
-      <section id="about" className="py-20 md:py-24 bg-white">
+      <section id="about" className="py-20 md:py-24 bg-gray-200">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollAnimator>
             <div id="kylene" className="grid md:grid-cols-[280px_1fr] gap-16 items-start">
               <div>
-                <p className="text-sm font-medium text-gold tracking-wide uppercase mb-3">
+                <p className="text-sm font-semibold text-gold tracking-wide uppercase mb-3">
                   About Us
                 </p>
-                <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                   The Person Behind the Network
                 </h2>
                 <Image
@@ -318,20 +321,20 @@ export default function Home() {
                   alt="Kylene Pippin"
                   width={280}
                   height={282}
-                  className="rounded-2xl shadow-sm"
+                  className="rounded-2xl shadow-lg"
                 />
               </div>
               <div className="md:pt-16">
                 <p className="text-gray-600 leading-relaxed text-lg mb-5">
-                  <span className="font-semibold text-gray-900">Kylene Pippin</span>, a strategist and relationship builder in the K-12 fundraising space, founded{" "}
-                  <span className="font-semibold text-gray-900">BowTie School Partners</span> after spending 17+ years helping schools and vendors work together more effectively. Based in Alpharetta, Georgia, she brings a calm, consultative approach to every partnership — always prioritizing clarity, trust, and long-term success.
+                  <span className="font-bold text-gray-900">Kylene Pippin</span>, a strategist and relationship builder in the K-12 fundraising space, founded{" "}
+                  <span className="font-bold text-gray-900">BowTie School Partners</span> after spending 17+ years helping schools and vendors work together more effectively. Based in Alpharetta, Georgia, she brings a calm, consultative approach to every partnership — always prioritizing clarity, trust, and long-term success.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg mb-6">
                   Kylene built BowTie to turn 17 years of relationships into a system that helps schools, vendors, and brands win together — every time.
                 </p>
                 <Link
                   href="/testimonials"
-                  className="text-sm font-medium text-gold hover:text-gold-light transition-colors duration-300"
+                  className="text-sm font-semibold text-gold hover:text-gold-light transition-colors duration-300"
                 >
                   Read what partners say about working with Kylene &rarr;
                 </Link>
@@ -339,15 +342,15 @@ export default function Home() {
             </div>
           </ScrollAnimator>
 
-          <div className="my-14 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+          <div className="my-14 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent" />
 
           <ScrollAnimator>
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                 What&apos;s in a Name
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-5">
-                <span className="font-semibold text-gray-900">BowTie</span>{" "}is inspired by my sons, Bo and Ty — the original &ldquo;Bow&rdquo; and &ldquo;Tie.&rdquo; And while our equally cherished youngest son, Gage, isn&apos;t in the name, he already gets plenty of attention as the baby of the family.
+                <span className="font-bold text-gray-900">BowTie</span>{" "}is inspired by my sons, Bo and Ty — the original &ldquo;Bow&rdquo; and &ldquo;Tie.&rdquo; And while our equally cherished youngest son, Gage, isn&apos;t in the name, he already gets plenty of attention as the baby of the family.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg">
                 The name reflects the heart behind our work: tying together the people and partnerships that shape the future for kids like mine.
@@ -358,11 +361,11 @@ export default function Home() {
       </section>
 
       {/* ═══ 9. CONTACT ═══ */}
-      <section id="contact" className="py-20 md:py-24 bg-gray-50">
+      <section id="contact" className="py-20 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollAnimator>
             <div className="text-center mb-14">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-5">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
                 Let&apos;s Connect
               </h2>
               <p className="text-gray-600 text-lg max-w-xl mx-auto">
@@ -375,16 +378,22 @@ export default function Home() {
       </section>
 
       {/* ═══ 10. BRUCE BROWN ═══ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-200">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 items-center">
             <div>
-              <p className="text-sm font-medium text-gold tracking-wide uppercase mb-3">
+              <p className="text-sm font-semibold text-gold tracking-wide uppercase mb-3">
                 A tribute
               </p>
-              <h3 className="text-3xl md:text-4xl font-light text-gray-900 italic mb-4">
-                in honor of<br />Bruce Brown
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+                In Honor of Bruce Brown
               </h3>
+              <p
+                className="text-xl md:text-2xl text-navy italic mb-4"
+                style={{ fontFamily: "'Georgia', 'Times New Roman', 'Palatino Linotype', cursive, serif" }}
+              >
+                A Friend, Former Athletic Director and OIAAA Executive Director
+              </p>
               <div className="w-16 h-px bg-gold/40" />
             </div>
             <div>
