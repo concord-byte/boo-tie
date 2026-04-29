@@ -1,95 +1,84 @@
 # KYL Session Handoff — 2026-04-29
 
-## What's Done
+## Final Launch State (End of Day)
 
-### Domain Cutover — COMPLETE
-- GoDaddy DNS records saved by Levi (ACM validation CNAME, www CNAME, apex)
-- Amplify domain association status: **AVAILABLE**
-- ACM SSL certificate: **VALID** (wildcard *.bowtienetwork.com, Amazon RSA, expires Nov 2026)
-- www subdomain: **verified: true** in Amplify
-- www.bowtienetwork.com serves the correct Next.js site via CloudFront (confirmed via direct IP curl)
-- Apex subdomain: **verified: false** — DNS propagated on Google/Cloudflare DNS but Amplify hasn't verified yet (automatic)
-- bowtie.luxrnd.tech: still live as staging/backup
-- Email DNS (MX, SPF, DKIM, Google verification TXT): all preserved and verified
+**Status:** PUBLIC LAUNCH READY — POST-LAUNCH ADMIN CMS NEXT
 
-### Code & Builds — COMPLETE
-- Branch: main
-- Latest commit: 509ad94
-- Amplify builds #31, #32, #33: all SUCCEED
-- All client visual/content updates deployed
-- Lead capture code deployed (webhook-first, safe 503 when no webhook URL)
-- Production metadataBase set to bowtienetwork.com
-- docs/client-ownership-handoff.md updated with temporary managed hosting agreement
+### Code / Deploy — COMPLETE
+- Repo: github.com/concord-byte/boo-tie
+- Branch: main @ 6645abd
+- Amplify build #37: SUCCEED
+- Amplify app: d1mg7jcbnf4s6c (us-east-1, WEB_COMPUTE)
+- Staging: bowtie.luxrnd.tech — live, 200 OK
+- Temporary company-managed hosting approved 2–3 months, review by 2026-07-31
+- Estimated cost: ~$0–5/month at current traffic, company-paid short term
+- Kylene owns: domain, DNS, email, lead data
+- Transfer options documented in docs/client-ownership-handoff.md
 
-### Google Sheet — PARTIAL
-- "BowTie Leads" spreadsheet created under Kylene's Google account
-- "Leads" tab with correct 13-column header row (A1:M1): timestamp, source, audienceType, name, email, phone, organization, role, message, partnerId, pagePath, userAgent, id
-- Headers were fixed via Playwright Firefox (automated, no Google auth needed because sheet was shared with edit access)
-- Sheet ID: `1ONU2PczA23xMM0fHfajFzKUJQ2bOqIaw8mAqntDvrgk`
+### Production Domain / DNS — COMPLETE
+- Production domain: bowtienetwork.com
+- Primary URL: www.bowtienetwork.com
+- GoDaddy DNS updated manually by Levi
+- SSL validation CNAME added
+- www CNAME → d18s19lkgjaczb.cloudfront.net
+- Root/apex forwarding: bowtienetwork.com → https://www.bowtienetwork.com (permanent 301, masking off)
+- Amplify domain status: AVAILABLE
+- www: verified=true
+- Apex: verified=false (propagating, automatic, non-blocking)
+- SSL: Amplify-managed ACM wildcard cert, auto-renewing, expires Nov 2026
+- Local DNS cache may temporarily show old Wix records — non-blocking
 
-## What's NOT Done
+### Email DNS — PRESERVED (DO NOT MODIFY)
+- 6 Google Workspace MX records intact
+- SPF TXT intact: `v=spf1 include:dc-aa8e722993._spfm.bowtienetwork.com ~all`
+- Google site-verification TXT intact
+- DKIM records preserved
 
-### Apps Script — NOT STARTED
-- The doPost webhook code has NOT been pasted into Apps Script yet
-- Extensions → Apps Script menu opens correctly but the script editor requires Google account auth (owner must do it)
-- Code to paste is in `docs/lead-capture-setup.md` (Step 2)
-- After pasting: Save → Deploy → New deployment → Web app → Execute as: Me → Who has access: Anyone → Deploy → Authorize → Copy URL
+### Lead Capture — OPERATIONAL
+- Google Sheet: "BowTie Leads" (owned by Kylene)
+- Sheet tab: "Leads" with 13 headers:
+  timestamp | source | audienceType | name | email | phone | organization | role | message | partnerId | pagePath | userAgent | id
+- Apps Script: deployed as Version 1, 2026-04-29 16:09
+- LEADS_WEBHOOK_URL: set in Amplify (app + branch level)
+- /api/leads: returns 201 Created on staging and production
+- Test rows confirmed in Google Sheet:
+  - integration-test (id: 0a2a55b7-9a5a-45b6-b040-1410eed682c1)
+  - domain-verification (id: 135e3eb1-42ec-4789-a36e-5ddb70dad062)
+- Email notification: configured for kylene@bowtienetwork.com, delivery UNVERIFIED
+- Safe-to-delete test rows: direct-webhook-test, integration-test, domain-verification
 
-### Amplify Webhook Env Var — BLOCKED on Apps Script URL
-- `LEADS_WEBHOOK_URL` is NOT set in Amplify (zero env vars configured)
-- `/api/leads` returns safe 503
-- Once the Apps Script web app URL is available, set it with:
-  ```
-  bash ~/Documents/Obsidian-AI-OS/scripts/aws.sh amplify update-app \
-    --app-id d1mg7jcbnf4s6c \
-    --environment-variables LEADS_WEBHOOK_URL=<url> \
-    --region us-east-1
-  ```
-- Then trigger redeploy and test
+### Implementation Fixes (This Session)
+1. **Env var injection:** Amplify WEB_COMPUTE did not pass console env vars to SSR runtime. Fix: build-time injection via `env` block in next.config.ts.
+2. **Apps Script 302 redirect:** Google Apps Script returns 302 after doPost execution. Fix: API fetch uses `redirect: "follow"` to follow redirect as GET and read the response.
 
-### DNS Propagation — AUTOMATIC, IN PROGRESS
-- www CNAME: propagated on Google DNS, not yet on Cloudflare/local resolvers
-- Apex A records: propagated on Google and Cloudflare DNS (AWS Global Accelerator IPs), not yet local
-- Amplify apex verified: false (will flip to true once propagation completes)
-- No action needed — just time (hours, not days)
+### Client-Facing Content — COMPLETE
+- Schools, Vendors, National Brands top nav links
+- Navy "Trusted By Schools and Partners Nationwide" section
+- "Who BowTie Serves" cards: light green/black text
+- Homepage testimonial cards: gold style
+- Testimonials page: alternating background colors
+- New testimonials: Chuck Jaco, Jeff Cassella, Scott Kaufman
+- Removed: Jennifer Ripley "Go get 'em girl"
+- Bruce Brown honor section: larger script-style blue text, subtitle
+- Preferred vendors: Beacon Creative, Sievert Electric, BlazeBite, TeamUp, We Empower LLC, OmniBox, Apparel
+- Some vendors still have missing logos/placeholders (non-blocking — admin CMS will fix)
 
-## Remaining Steps to Friday Launch
+## NEXT TASK — Admin CMS Audit and Implementation Plan
 
-1. **Apps Script deploy** — Levi or Kylene must:
-   - Open the BowTie Leads sheet → Extensions → Apps Script
-   - Paste the code from `docs/lead-capture-setup.md`
-   - Deploy as web app
-   - Copy the URL
-2. **Set LEADS_WEBHOOK_URL** — Claude sets it in Amplify via scripts/aws.sh
-3. **Redeploy + test** — Confirm /api/leads returns 200 and data appears in sheet
-4. **Verify DNS propagation** — dig + curl checks
-5. **Commit** updated docs to repo
+**Do not build in the first session. Audit and plan only.**
 
-## Key Files
-- `docs/domain-cutover-bowtienetwork.md` — DNS cutover plan and records
-- `docs/lead-capture-setup.md` — Apps Script code and setup steps
-- `docs/client-ownership-handoff.md` — Ownership matrix with temporary hosting agreement
-- `~/Documents/Obsidian-AI-OS/scripts/aws.sh` — AWS CLI wrapper with credentials
+Kylene needs an admin backend to edit website content without code changes:
+- Preferred vendors (name, logo URL, link, description, active/inactive, sort order)
+- Testimonials (author, quote, role, featured flag)
+- Schools/clients/national brands if displayed
 
-## Key Commands for Next Session
-```bash
-# Check Amplify domain status
-bash ~/Documents/Obsidian-AI-OS/scripts/aws.sh amplify get-domain-association \
-  --app-id d1mg7jcbnf4s6c --domain-name bowtienetwork.com --region us-east-1
+Next Worker should audit:
+1. Existing /admin route implementation
+2. Current vendor/testimonial/partner data sources
+3. Prisma schema and DB connection status
+4. Auth status
+5. Amplify deployment constraints
+6. Static fallback strategy
+7. Smallest safe Admin CMS MVP
 
-# Check DNS
-dig www.bowtienetwork.com CNAME +short
-dig bowtienetwork.com A +short
-dig bowtienetwork.com MX +short
-
-# Set webhook URL (once available)
-bash ~/Documents/Obsidian-AI-OS/scripts/aws.sh amplify update-app \
-  --app-id d1mg7jcbnf4s6c \
-  --environment-variables LEADS_WEBHOOK_URL=<url> \
-  --region us-east-1
-
-# Test lead endpoint
-curl -s -o /dev/null -w "%{http_code}" -X POST https://bowtie.luxrnd.tech/api/leads \
-  -H "Content-Type: application/json" \
-  -d '{"firstName":"Test","lastName":"User","email":"test@example.com","source":"test","role":"School"}'
-```
+Recommended MVP: protected /admin login, Vendors CRUD, Testimonials CRUD, logo URL field (no upload), seed hardcoded data into DB, public site reads DB with static fallback.
