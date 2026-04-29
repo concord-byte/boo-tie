@@ -1,7 +1,13 @@
 import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import pg from "pg";
 import bcrypt from "bcryptjs";
 
-const prisma = new PrismaClient();
+const url = process.env.DATABASE_URL;
+if (!url) { console.error("DATABASE_URL is not set"); process.exit(1); }
+const pool = new pg.Pool({ connectionString: url, ssl: { rejectUnauthorized: false } });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 const VENDORS = [
   { name: "Luxedo", slug: "luxedo", logo: "/images/partner-luxedo.png", website: "https://www.luxedoprojection.com", description: "Pro-level projection solutions for schools, events, and athletic venues.", adCopy: "Luxedo — Pro-Level Projection. Transform your campus with immersive projection experiences.", tier: "premier", comingSoon: false, waitlist: false },
