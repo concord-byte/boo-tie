@@ -14,48 +14,39 @@
 
 ## Amplify Custom Domain Status
 
-**Not yet configured** — AWS CLI was not authenticated at time of preparation. The domain must be added via Amplify Console or CLI before DNS records can be created.
+**CONFIGURED** — Domain association created 2026-04-29. Status: PENDING_VERIFICATION.
+Awaiting DNS record creation in GoDaddy to validate the ACM certificate.
 
-### Step 1: Add custom domain in Amplify
+### Step 1: Add custom domain in Amplify — DONE
 
-```bash
-aws amplify create-domain-association \
-  --app-id d1mg7jcbnf4s6c \
-  --domain-name bowtienetwork.com \
-  --sub-domain-settings \
-    '[{"prefix":"","branchName":"main"},{"prefix":"www","branchName":"main"}]' \
-  --region us-east-1
-```
-
-Or via AWS Console: Amplify → App → Hosting → Custom domains → Add domain.
-
-Amplify will provision an ACM certificate and provide DNS validation records.
+Domain association created via CLI. Both apex and www subdomains mapped to `main` branch.
+CloudFront distribution: `d18s19lkgjaczb.cloudfront.net`
 
 ### Step 2: DNS Records to Create in GoDaddy
 
-After Amplify provides the certificate validation records, add these in GoDaddy DNS:
+Log into GoDaddy DNS management for bowtienetwork.com and add these records:
 
-#### SSL Certificate Validation (ACM)
+#### SSL Certificate Validation (ACM) — ADD THIS FIRST
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
-| CNAME | _[hash].bowtienetwork.com | _[hash].acm-validations.aws | 600 |
+| CNAME | `_56f7fd18987d4d5b47bdc4def1c793a8` | `_9b9f1d017ae548050a017f5a652e9604.jkddzztszm.acm-validations.aws.` | 600 |
 
-*(Exact values provided by Amplify after domain association is created)*
-
-#### Apex Domain (bowtienetwork.com)
-| Type | Name | Value | TTL |
-|------|------|-------|-----|
-| ANAME/ALIAS or A | @ | *(Amplify-provided CloudFront distribution)* | 600 |
-
-**Note:** GoDaddy does not support ALIAS/ANAME records natively. Options:
-1. Use GoDaddy's "Forwarding" to redirect apex → www, then CNAME www
-2. Use Amplify's provided A records if available
-3. Consider transferring DNS to Route 53 for native ALIAS support
+This validates the SSL certificate. Wait 5-30 minutes after adding for Amplify to verify.
 
 #### www Subdomain
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
-| CNAME | www | *(Amplify-provided CloudFront domain)* | 600 |
+| CNAME | `www` | `d18s19lkgjaczb.cloudfront.net` | 600 |
+
+#### Apex Domain (bowtienetwork.com)
+| Type | Name | Value | TTL |
+|------|------|-------|-----|
+| CNAME | `@` | `d18s19lkgjaczb.cloudfront.net` | 600 |
+
+**Note on GoDaddy apex CNAME:** GoDaddy supports CNAME-flattening for root domains.
+If GoDaddy rejects a CNAME on `@`, use one of these alternatives:
+1. Use GoDaddy's "Forwarding" to redirect apex → www, then CNAME www
+2. Transfer DNS to Route 53 for native ALIAS support
 
 ### Step 3: Records to PRESERVE (DO NOT MODIFY)
 
@@ -84,7 +75,7 @@ These records support Google Workspace email and must remain intact:
 
 ```bash
 # Check certificate validation
-dig _[hash].bowtienetwork.com CNAME +short
+dig _56f7fd18987d4d5b47bdc4def1c793a8.bowtienetwork.com CNAME +short
 
 # Check apex resolution
 dig bowtienetwork.com A +short
@@ -119,12 +110,13 @@ aws amplify get-domain-association \
 
 ## Next Steps
 
-1. Authenticate AWS CLI: `aws configure` or `aws sso login`
-2. Run the Amplify domain association command above
-3. Copy the ACM validation CNAME from Amplify output
-4. Log into GoDaddy DNS management for bowtienetwork.com
-5. Add the ACM validation CNAME
-6. Wait for certificate validation (usually 5-30 minutes)
-7. Add the apex A/ALIAS and www CNAME records
-8. Wait for DNS propagation (up to 48 hours, usually <1 hour)
-9. Run the smoke test checklist
+1. ~~Authenticate AWS CLI~~ — DONE (vault wrapper)
+2. ~~Create Amplify domain association~~ — DONE (2026-04-29)
+3. ~~Push code to main~~ — DONE (commit 61b2dbb, build running)
+4. Set LEADS_WEBHOOK_URL env var in Amplify (after Apps Script deploy)
+5. Log into GoDaddy DNS management for bowtienetwork.com
+6. Add the ACM validation CNAME (see Step 2 above)
+7. Wait for certificate validation (usually 5-30 minutes)
+8. Add the www CNAME and apex CNAME/forwarding records
+9. Wait for DNS propagation (up to 48 hours, usually <1 hour)
+10. Run the smoke test checklist
