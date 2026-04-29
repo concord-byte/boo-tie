@@ -55,12 +55,29 @@ export async function POST(request: NextRequest) {
         headers["X-Webhook-Secret"] = WEBHOOK_SECRET;
       }
 
-      const webhookRes = await fetch(WEBHOOK_URL, {
+      const payload = JSON.stringify(lead);
+
+      // Google Apps Script returns 302 redirects; fetch converts POST→GET on 302.
+      // Handle redirect manually to preserve POST method.
+      let webhookRes = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers,
-        body: JSON.stringify(lead),
+        body: payload,
+        redirect: "manual",
         signal: AbortSignal.timeout(10_000),
       });
+
+      if (webhookRes.status >= 300 && webhookRes.status < 400) {
+        const redirectUrl = webhookRes.headers.get("location");
+        if (redirectUrl) {
+          webhookRes = await fetch(redirectUrl, {
+            method: "POST",
+            headers,
+            body: payload,
+            signal: AbortSignal.timeout(10_000),
+          });
+        }
+      }
 
       if (!webhookRes.ok) {
         console.error(
