@@ -2,48 +2,97 @@ import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 
+const WEBHOOK_URL = process.env.LEADS_WEBHOOK_URL;
+const WEBHOOK_SECRET = process.env.LEADS_WEBHOOK_SECRET;
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const LEADS_DIR = path.join(process.cwd(), "data", "leads");
 
-async function ensureLeadsDir() {
-  await fs.mkdir(LEADS_DIR, { recursive: true });
+function sanitize(val: unknown): string {
+  if (typeof val !== "string") return "";
+  return val.trim().slice(0, 2000);
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, company, phone, role, message, partnerId } = body;
+
+    const lead = {
+      id: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      source: sanitize(body.source) || "website",
+      audienceType: sanitize(body.audienceType) || sanitize(body.role) || "",
+      firstName: sanitize(body.firstName),
+      lastName: sanitize(body.lastName),
+      name: `${sanitize(body.firstName)} ${sanitize(body.lastName)}`.trim(),
+      email: sanitize(body.email),
+      phone: sanitize(body.phone),
+      organization: sanitize(body.company),
+      role: sanitize(body.role),
+      message: sanitize(body.message),
+      partnerId: sanitize(body.partnerId),
+      pagePath: sanitize(body.pagePath),
+      userAgent: request.headers.get("user-agent")?.slice(0, 500) || "",
+      status: "new",
+    };
 
     const errors: string[] = [];
-    if (!firstName?.trim()) errors.push("firstName is required");
-    if (!lastName?.trim()) errors.push("lastName is required");
-    if (!email?.trim()) errors.push("email is required");
+    if (!lead.firstName) errors.push("firstName is required");
+    if (!lead.lastName) errors.push("lastName is required");
+    if (!lead.email) errors.push("email is required");
+    if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+      errors.push("email format is invalid");
+    }
 
     if (errors.length > 0) {
       return NextResponse.json({ error: errors.join(", ") }, { status: 400 });
     }
 
-    const lead = {
-      id: crypto.randomUUID(),
-      firstName,
-      lastName,
-      email,
-      company: company || null,
-      phone: phone || null,
-      role: role || null,
-      message: message || null,
-      partnerId: partnerId || null,
-      status: "new",
-      createdAt: new Date().toISOString(),
-    };
+    if (WEBHOOK_URL) {
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (WEBHOOK_SECRET) {
+        headers["X-Webhook-Secret"] = WEBHOOK_SECRET;
+      }
 
-    await ensureLeadsDir();
-    const filename = `${lead.createdAt.replace(/[:.]/g, "-")}_${lead.id.slice(0, 8)}.json`;
-    await fs.writeFile(
-      path.join(LEADS_DIR, filename),
-      JSON.stringify(lead, null, 2),
+      const webhookRes = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(lead),
+        signal: AbortSignal.timeout(10_000),
+      });
+
+      if (!webhookRes.ok) {
+        console.error(
+          `Webhook failed: ${webhookRes.status} ${webhookRes.statusText}`,
+        );
+        return NextResponse.json(
+          { error: "We couldn't save your information right now. Please try again in a moment." },
+          { status: 502 },
+        );
+      }
+    } else if (IS_PRODUCTION) {
+      console.error(
+        "LEADS_WEBHOOK_URL is not configured. Lead lost:",
+        lead.email,
+      );
+      return NextResponse.json(
+        { error: "We couldn't save your information right now. Please try again in a moment." },
+        { status: 503 },
+      );
+    } else {
+      await fs.mkdir(LEADS_DIR, { recursive: true });
+      const filename = `${lead.timestamp.replace(/[:.]/g, "-")}_${lead.id.slice(0, 8)}.json`;
+      await fs.writeFile(
+        path.join(LEADS_DIR, filename),
+        JSON.stringify(lead, null, 2),
+      );
+    }
+
+    return NextResponse.json(
+      { id: lead.id, status: "new", createdAt: lead.timestamp },
+      { status: 201 },
     );
-
-    return NextResponse.json(lead, { status: 201 });
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },

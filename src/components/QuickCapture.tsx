@@ -21,6 +21,8 @@ export default function QuickCapture() {
           lastName: "",
           email,
           role: role || "Other",
+          source: "quick-capture",
+          pagePath: window.location.pathname,
         }),
       });
       setSubmitted(true);

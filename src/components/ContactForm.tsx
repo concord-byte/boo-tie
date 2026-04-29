@@ -18,7 +18,11 @@ export default function ContactForm() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          source: "contact-form",
+          pagePath: window.location.pathname,
+        }),
       });
       if (!res.ok) throw new Error("Failed to submit. Please try again.");
       setStatus("success");

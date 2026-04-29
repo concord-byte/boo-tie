@@ -42,6 +42,8 @@ export default function PartnerLeadForm({
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)
         .value,
       partnerId: partnerSlug,
+      source: "partner-lead-form",
+      pagePath: window.location.pathname,
     };
 
     try {
