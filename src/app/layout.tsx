@@ -11,9 +11,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://bowtienetwork.com",
+  ),
   title: "BowTie School Partners — Tying It All Together",
   description:
     "BowTie connects schools, best-in-class vendors, and respected national brands through one reliable partner. Strategic school partnerships that deliver real value.",
+  openGraph: {
+    title: "BowTie School Partners — Tying It All Together",
+    description:
+      "A network where schools, best-in-class vendors, and respected brands all win together.",
+    siteName: "BowTie School Partners",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
