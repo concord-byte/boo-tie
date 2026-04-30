@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackFormSuccess } from "@/lib/track";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -26,6 +27,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error("Failed to submit. Please try again.");
       setStatus("success");
+      trackFormSuccess("contact");
       form.reset();
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");

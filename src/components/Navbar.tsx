@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { trackNavClick, trackCtaClick } from "@/lib/track";
 
 const NAV_LINKS = [
   { label: "Schools", href: "/for/schools" },
@@ -49,6 +50,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                onClick={() => trackNavClick(link.label)}
                 className="text-sm font-medium text-gray-600 hover:text-navy transition-colors duration-300"
               >
                 {link.label}
@@ -58,6 +60,7 @@ export default function Navbar() {
           <li>
             <a
               href="/#contact"
+              onClick={() => trackCtaClick("nav-connect")}
               className="bg-gold text-navy rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-gold-light hover:scale-105 transition-all duration-300"
             >
               Connect with Ky
